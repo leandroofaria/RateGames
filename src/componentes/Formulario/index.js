@@ -4,7 +4,7 @@ import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
-const Formulario = () => {
+const Formulario = (props) => {
 
   const avaliacoes = 
       ['Ótimo',
@@ -15,7 +15,12 @@ const Formulario = () => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault()
-    console.log('Form foi submetido => ', nome, genero, imagem, rank)
+    props.aoJogoCadastrado({
+      nome,
+      genero,
+      imagem,
+      rank
+    })
   }
 
   const [nome, setNome] = useState('')
