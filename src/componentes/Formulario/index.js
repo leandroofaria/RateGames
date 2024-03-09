@@ -11,16 +11,23 @@ const Formulario = () => {
       'Mediano',
       'Ruim',
       'Horrível']
-  
+
+  const aoSalvar = (evento) => {
+    evento.preventDefault()
+  }
 
   return (
     <section className="formulario">
-      <form>
+      <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card do jogo</h2>
-        <CampoTexto label="Nome" placeholder="Digite o nome do jogo" />
-        <CampoTexto label="Gênero" placeholder="Digite o gênero do jogo" />
-        <CampoTexto label="Imagem" placeholder="Insira uma imagem do jogo" />
-        <ListaSuspensa label="Rank" itens={avaliacoes}/>
+        <CampoTexto label="Nome" placeholder="Digite o nome do jogo" 
+        obrigatorio={true}/>
+        <CampoTexto label="Gênero" placeholder="Digite o gênero do jogo" 
+        obrigatorio={true}/>
+        <CampoTexto label="Imagem" placeholder="Insira uma imagem do jogo" 
+        obrigatorio={true}/>
+        <ListaSuspensa label="Rank" itens={avaliacoes}
+        obrigatorio={true}/>
         <Botao>Criar Card</Botao>
       </form>
     </section>
